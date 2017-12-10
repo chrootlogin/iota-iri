@@ -13,6 +13,10 @@ TESTNET = false
 DB_PATH = data/db
 EOL
 
+cd /opt/iri
+
+chown -R iota /opt/iri/data
+
 exec java \
   $JAVA_OPTIONS \
   -Djava.net.preferIPv4Stack=true \
