@@ -10,6 +10,9 @@ RUN mvn clean package \
 
 FROM openjdk:8-jre-slim
 
+ARG UID=1600
+ARG GID=1600
+
 ENV NEIGHBORS="" \
   REMOTE_API_LIMIT="attachToTangle, addNeighbors, removeNeighbors" \
   API_PORT=14265 \
@@ -19,9 +22,13 @@ ENV NEIGHBORS="" \
   JAVA_OPTIONS="-XX:+DisableAttachMechanism -XX:+HeapDumpOnOutOfMemoryError -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
 
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
-RUN chmod +x /tini
 
 COPY root /
+
+RUN chmod +x /usr/bin/tini \
+  && addgroup --gid ${GID} iota \
+  && adduser --home /opt/iri --no-create-home --uid ${UID} --gecos "IOTA user" --gid ${GID} --disabled-password iota
+
 COPY --from=builder /opt/iri/target/iri.jar /opt/iri/iri.jar
 
 VOLUME /opt/iri/data

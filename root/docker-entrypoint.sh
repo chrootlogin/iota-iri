@@ -17,11 +17,13 @@ cd /opt/iri
 
 chown -R iota /opt/iri/data
 
-exec java \
+set -x
+
+exec runuser -l iota -c "java \
   $JAVA_OPTIONS \
   -Djava.net.preferIPv4Stack=true \
   -Dlogback.configurationFile=/opt/iri/logback.xml \
   -jar /opt/iri/iri.jar \
   --config /opt/iri/iri.ini \
-  --remote --remote-limit-api "$REMOTE_API_LIMIT" \
-  "$@"
+  --remote --remote-limit-api \"$REMOTE_API_LIMIT\" \
+  \"$@\""
