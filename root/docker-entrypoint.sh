@@ -15,9 +15,7 @@ EOL
 
 cd /opt/iri
 
-chown -R iota /opt/iri/data
-
-set -x
+chown -R iota:iota /opt/iri/data
 
 exec runuser -l iota -c "java \
   $JAVA_OPTIONS \
