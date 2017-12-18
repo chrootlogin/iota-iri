@@ -1,12 +1,4 @@
-FROM maven:3.5-jdk-8 as builder
-
-# IRI release to use, can be either git tag or branch
-ARG IRI_VERSION=1.4.1.2
-
-RUN git clone -b v$IRI_VERSION https://github.com/iotaledger/iri /opt/iri
-WORKDIR /opt/iri
-RUN mvn clean package \
-  && cp /opt/iri/target/iri-$IRI_VERSION.jar /opt/iri/target/iri.jar
+FROM iotaledger/iri:v1.4.1.2 as base
 
 FROM openjdk:8-jre-slim
 
@@ -29,7 +21,7 @@ RUN chmod +x /usr/bin/tini \
   && addgroup --gid ${GID} iota \
   && adduser --home /opt/iri --no-create-home --uid ${UID} --gecos "IOTA user" --gid ${GID} --disabled-password iota
 
-COPY --from=builder /opt/iri/target/iri.jar /opt/iri/iri.jar
+COPY --from=base /iri/iri.jar /opt/iri/iri.jar
 
 VOLUME /opt/iri/data
 
