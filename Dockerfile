@@ -11,13 +11,19 @@ ENV NEIGHBORS="" \
   API_PORT=14265 \
   UDP_PORT=14600 \
   TCP_PORT=15600 \
+  PRESYNC=1 \
   JAVA_OPTIONS="-XX:+DisableAttachMechanism -XX:+HeapDumpOnOutOfMemoryError -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
 
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
 
 COPY root /
 
-RUN chmod +x /usr/bin/tini \
+RUN apt-get update \
+  && apt-get -y dist-upgrade \
+  && apt-get -y --no-install-recommends install \
+    curl \
+  && rm -rf /var/lib/apt/lists/* \
+  && chmod +x /usr/bin/tini \
   && addgroup --gid ${GID} iota \
   && adduser --home /opt/iri --no-create-home --uid ${UID} --gecos "IOTA user" --gid ${GID} --disabled-password iota
 
