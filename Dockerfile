@@ -1,4 +1,4 @@
-FROM iotaledger/iri:v1.4.1.4 as base
+FROM iotaledger/iri:v1.4.1.6 as base
 
 FROM openjdk:8-jre-slim
 
@@ -11,7 +11,7 @@ ENV NEIGHBORS="" \
   API_PORT=14265 \
   UDP_PORT=14600 \
   TCP_PORT=15600 \
-  PRESYNC=1 \
+  PRESYNC=0 \
   JAVA_OPTIONS="-XX:+DisableAttachMechanism -XX:+HeapDumpOnOutOfMemoryError -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
 
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini

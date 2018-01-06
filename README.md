@@ -26,6 +26,10 @@ $ docker run --net=host --rm --name iota-node -v iota_data:/opt/iri/data -e "NEI
 $ docker run --net=host --rm --name iota-node -v iota_data:/opt/iri/data -e "NEIGHBORS=udp://neighbor1:14600 tcp://neighbor1:15600 udp://neighbor3:14600" rootlogin/iota-iri --revalidate
 ```
 
+#### Pre-sync database
+
+If you want to sync your node with the latest tangle database from [iota.partners](http://iota.partners), set the environment variable `PRESYNC` to 1. This helps to get your node faster fully synced.
+
 ### Environment variables
 
 You can configure different things with environment variables:
@@ -37,6 +41,7 @@ You can configure different things with environment variables:
 | API_PORT         | Port for API listener (Default: 14265).                                                             |
 | UDP_PORT         | Port for UDP listener (Default: 14600).                                                             |
 | TCP_PORT         | Port for TCP listener (Default: 15600).                                                             |
+| PRESYNC          | If you want presync your database with iota.partners set 1 (Default: 0).                            |
 
 ## Run with docker-compose
 
