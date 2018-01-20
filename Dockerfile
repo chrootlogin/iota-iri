@@ -12,7 +12,7 @@ ENV NEIGHBORS="" \
   UDP_PORT=14600 \
   TCP_PORT=15600 \
   PRESYNC=0 \
-  JAVA_OPTIONS="-XX:+DisableAttachMechanism -XX:+HeapDumpOnOutOfMemoryError -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+  JAVA_OPTIONS="-XX:+DisableAttachMechanism -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
 
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
 
