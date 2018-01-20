@@ -34,14 +34,15 @@ If you want to sync your node with the latest tangle database from [iota.partner
 
 You can configure different things with environment variables:
 
-| Name             | Description                                                                                         |
-| ---------------- | --------------------------------------------------------------------------------------------------- |
-| NEIGHBORS        | List of your neighbors (space delimited).                                                           |
-| REMOTE_API_LIMIT | List of things that are forbidden via api (Default: attachToTangle, addNeighbors, removeNeighbors). |
-| API_PORT         | Port for API listener (Default: 14265).                                                             |
-| UDP_PORT         | Port for UDP listener (Default: 14600).                                                             |
-| TCP_PORT         | Port for TCP listener (Default: 15600).                                                             |
-| PRESYNC          | If you want presync your database with iota.partners set 1 (Default: 0).                            |
+| Name             | Description                                                                                             |
+| ---------------- | ------------------------------------------------------------------------------------------------------- |
+| NEIGHBORS        | List of your neighbors (space delimited).                                                               |
+| REMOTE_API_LIMIT | List of things that are forbidden via api (Default: attachToTangle, addNeighbors, removeNeighbors).     |
+| API_PORT         | Port for API listener (Default: 14265).                                                                 |
+| UDP_PORT         | Port for UDP listener (Default: 14600).                                                                 |
+| TCP_PORT         | Port for TCP listener (Default: 15600).                                                                 |
+| PRESYNC          | If you want presync your database with iota.partners set 1 (Default: 0).                                |
+| JAVA_OPTIONS     | Default: "-XX:+DisableAttachMechanism -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap" |
 
 ## Run with docker-compose
 
