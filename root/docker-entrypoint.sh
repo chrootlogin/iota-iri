@@ -13,6 +13,17 @@ TESTNET = false
 DB_PATH = data/db
 EOL
 
+if [ "${PRESYNC}" == "1" ]; then
+  if [ ! -d "/opt/iri/data/db" ]; then
+    echo "+++ Downloading IOTA.partners mainnetdb... +++"
+    cd /tmp
+    curl -LO http://db.iota.partners/IOTA.partners-mainnetdb.tar.gz \
+      && mkdir -p /opt/iri/data/db \
+      && tar xzfv /tmp/IOTA.partners-mainnetdb.tar.gz -C /opt/iri/data/db \
+      && rm -f /tmp/IOTA.partners-mainnetdb.tar.gz
+  fi
+fi
+
 cd /opt/iri
 
 chown -R iota:iota /opt/iri/data
