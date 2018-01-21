@@ -19,8 +19,8 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/
 COPY root /
 
 RUN apt-get update \
-  && apt-get -y dist-upgrade \
-  && apt-get -y --no-install-recommends install \
+  && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade \
+  && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
     curl \
   && rm -rf /var/lib/apt/lists/* \
   && chmod +x /usr/bin/tini \
