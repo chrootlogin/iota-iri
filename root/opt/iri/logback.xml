@@ -10,7 +10,7 @@
 		</layout>
 	</appender>
 
-	<logger name="com" level="DEBUG" additivity="false">
+	<logger name="com" level="INFO" additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
 
