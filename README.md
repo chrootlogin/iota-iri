@@ -2,6 +2,8 @@
 
 This is [IRI (IOTA reference implementation)](https://github.com/iotaledger/iri) packed as small docker image.
 
+It's used by my IOTA node pool on [iota.rootlogin.ch](https://iota.rootlogin.ch).
+
 [![](https://images.microbadger.com/badges/version/rootlogin/iota-iri.svg)](https://microbadger.com/images/rootlogin/iota-iri "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/rootlogin/iota-iri.svg)](https://microbadger.com/images/rootlogin/iota-iri "Get your own image badge on microbadger.com")
 
 ## Features
