@@ -17,7 +17,7 @@ if [ "${PRESYNC}" == "1" ]; then
   if [ ! -d "/opt/iri/data/db" ]; then
     echo "+++ Downloading IOTA.partners mainnetdb... +++"
     cd /tmp
-    curl -sS -LO http://db.iota.partners/IOTA.partners-mainnetdb.tar.gz \
+    curl -sS --retry 5 -LO http://db.iota.partners/IOTA.partners-mainnetdb.tar.gz \
       && mkdir -p /opt/iri/data/db \
       && tar xzfv /tmp/IOTA.partners-mainnetdb.tar.gz -C /opt/iri/data/db \
       && rm -f /tmp/IOTA.partners-mainnetdb.tar.gz
