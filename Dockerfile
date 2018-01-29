@@ -1,4 +1,4 @@
-FROM iotaledger/iri:v1.4.2.1 as base
+FROM iotaledger/iri:latest as base
 
 FROM openjdk:8-jre-slim
 
