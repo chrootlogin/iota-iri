@@ -1,3 +1,4 @@
+# Use latest because IOTA foundation tags 1.4.2.0/1.4.2.1 are broken
 FROM iotaledger/iri:latest as base
 
 FROM openjdk:8-jre-slim
